@@ -90,3 +90,7 @@ You can edit:
 - Students should enter their name and class before completing the quiz.
 - Quiz results download as a `.doc` file that can usually be opened in Microsoft Word.
 - This project is intentionally simple so it can be maintained easily in a school setting.
+
+## Compatibility note
+
+This package includes a homepage redesign based on the uploaded `index_Version3.html` and `css_style_Version3.css`, while preserving required mission-page styles so the interactive missions continue to work correctly.
