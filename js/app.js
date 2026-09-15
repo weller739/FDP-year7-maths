@@ -20,6 +20,57 @@ function getMissionById(id) {
   return MISSIONS.find((mission) => mission.id === Number(id));
 }
 
+function getThinkingPrompt(mission, promptText = "") {
+  const combined = `${mission.title} ${mission.topic} ${promptText}`.toLowerCase();
+
+  if (combined.includes("fractions, decimals and percentages") || combined.includes("fdp")) {
+    return "Try converting the value into a form you know well first. Ask yourself whether dividing, making a denominator of 100, or multiplying by 100 would help.";
+  }
+
+  if (combined.includes("equivalent fractions")) {
+    return "Look at how one part of the fraction has changed. What number would multiply or divide one denominator into the other, and can you use the same number on the numerator?";
+  }
+
+  if (combined.includes("ordering and rounding decimals")) {
+    if (combined.includes("round")) {
+      return "Find the place value you are rounding to, then check the digit immediately to its right. Is it 5 or more, or less than 5?";
+    }
+    return "Line up the decimal points and compare from left to right: ones, tenths, then hundredths.";
+  }
+
+  if (combined.includes("calculating percentages") || combined.includes("percentage of a quantity")) {
+    return "Think about a percentage you already know, such as 10%, 50% or 25%. Can you build the answer from one of those friendly percentages?";
+  }
+
+  if (combined.includes("adding fractions")) {
+    return "Check the denominators first. If they already match, add the numerators. If they do not match, rename the fractions using a common denominator before adding.";
+  }
+
+  if (combined.includes("mixed numbers") || combined.includes("improper fractions")) {
+    return "Ask yourself whether you are changing a whole-and-part number into one fraction, or splitting an improper fraction into wholes and a remainder.";
+  }
+
+  if (combined.includes("adding and subtracting decimals")) {
+    return "Rewrite the numbers so the decimal points line up vertically. Then work one place value column at a time.";
+  }
+
+  if (combined.includes("multiplying and dividing fractions")) {
+    if (combined.includes("÷")) {
+      return "For division, remember: keep the first fraction, change division to multiplication, and flip the second fraction.";
+    }
+    return "For multiplication, multiply the numerators, then multiply the denominators, and simplify at the end if possible.";
+  }
+
+  if (combined.includes("multiplying and dividing decimals")) {
+    if (combined.includes("÷")) {
+      return "Think about place value. How many tenths or hundredths are being shared, and what should the size of the answer be?";
+    }
+    return "Use place value and known number facts first, then decide where the decimal point belongs in the product.";
+  }
+
+  return "Look back at the worked example and identify the first step. Try that same first step on this question before checking again.";
+}
+
 function renderMissionGroups() {
   const supportGrid = document.getElementById("support-grid");
   const consolidateGrid = document.getElementById("consolidate-grid");
@@ -106,7 +157,7 @@ function renderMissionPage() {
         </div>
         <div class="stage-card practice-stage">
           <h3>Practice</h3>
-          <p class="muted">Receive feedback, hints and reteaching as you work.</p>
+          <p class="muted">Receive feedback, hints and thinking prompts as you work.</p>
         </div>
         <div class="stage-card quiz-stage">
           <h3>Quiz</h3>
@@ -195,7 +246,7 @@ function bindPracticeHandlers(mission) {
 
       if (!userAnswer) {
         feedback.className = "feedback-box warning";
-        feedback.innerHTML = "Please enter an answer first. <br><strong>Hint:</strong> " + escapeHtml(item.hint);
+        feedback.innerHTML = `<strong>Please enter an answer first.</strong><br><strong>Hint:</strong> ${escapeHtml(item.hint)}<br><strong>Think about this:</strong> ${escapeHtml(getThinkingPrompt(mission, item.prompt))}`;
         return;
       }
 
@@ -204,7 +255,7 @@ function bindPracticeHandlers(mission) {
         feedback.innerHTML = `<strong>Correct.</strong> ${escapeHtml(item.answerText)}`;
       } else {
         feedback.className = "feedback-box incorrect";
-        feedback.innerHTML = `<strong>Not quite yet.</strong><br><strong>Hint:</strong> ${escapeHtml(item.hint)}<br><strong>Reteach:</strong> ${escapeHtml(item.reteach)}`;
+        feedback.innerHTML = `<strong>Not quite yet.</strong><br><strong>Hint:</strong> ${escapeHtml(item.hint)}<br><strong>Think about this:</strong> ${escapeHtml(getThinkingPrompt(mission, item.prompt))}`;
       }
     });
   });
@@ -233,21 +284,24 @@ function submitQuiz(mission) {
     const accepted = item.accepted.map(normaliseAnswer);
 
     let status = "Incorrect";
+    let feedbackNote = getThinkingPrompt(mission, item.prompt);
+
     if (accepted.includes(userAnswer)) {
       score += 1;
       status = "Correct";
+      feedbackNote = item.explanation;
       feedback.className = "quiz-feedback correct show";
       feedback.innerHTML = `<strong>Correct.</strong> ${escapeHtml(item.explanation)}`;
     } else {
       feedback.className = "quiz-feedback incorrect show";
-      feedback.innerHTML = `<strong>Incorrect.</strong> ${escapeHtml(item.explanation)}`;
+      feedback.innerHTML = `<strong>Not quite.</strong> ${escapeHtml(feedbackNote)}`;
     }
 
     results.push({
       question: item.prompt,
       userAnswer: input.value.trim() || "No answer",
       status,
-      explanation: item.explanation
+      feedbackNote
     });
   });
 
@@ -319,7 +373,7 @@ function downloadResults(mission) {
       <td>${escapeHtml(result.question)}</td>
       <td>${escapeHtml(result.userAnswer)}</td>
       <td>${escapeHtml(result.status)}</td>
-      <td>${escapeHtml(result.explanation)}</td>
+      <td>${escapeHtml(result.feedbackNote)}</td>
     </tr>
   `).join("");
 
@@ -358,7 +412,7 @@ function downloadResults(mission) {
               <th>Question</th>
               <th>Student answer</th>
               <th>Status</th>
-              <th>Teaching note</th>
+              <th>Feedback</th>
             </tr>
           </thead>
           <tbody>${rows}</tbody>

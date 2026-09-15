@@ -11,6 +11,7 @@ A GitHub Pages-ready website for Year 7 students learning **fractions, decimals 
   - a **Practice** section with correct/incorrect feedback, hints and reteaching
   - a **Quiz** section with score summary
   - downloadable **Word-compatible evidence** as a `.doc` file
+- incorrect answers now provide **thinking prompts** rather than revealing the answer
 - Built with plain **HTML, CSS and JavaScript**
 - Suitable for **GitHub Pages** hosting
 - Curated **Corbettmaths Primary** support-video links embedded within relevant missions
