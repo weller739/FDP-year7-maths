@@ -1,46 +1,35 @@
-# FDP Mission Hub
+# FDP Mission Hub - Core and Extended Version
 
-A GitHub Pages-ready website for Year 7 students learning **fractions, decimals and percentages**.
+A GitHub Pages-ready website for Year 7 students learning **fractions, decimals, percentages and introductory ratio**.
 
 ## What is included
 
-- Landing page grouped into **Support**, **Consolidate** and **Extend**
-- **12 missions total** with **4 missions in each group**
-- Each mission includes:
-  - a **Learn** section with worked examples
-  - a **Practice** section with correct/incorrect feedback, hints and reteaching
-  - a **Quiz** section with score summary
-  - downloadable **Word-compatible evidence** as a `.doc` file
-- incorrect answers now provide **thinking prompts** rather than revealing the answer
-- Built with plain **HTML, CSS and JavaScript**
-- Suitable for **GitHub Pages** hosting
-- Curated **Corbettmaths Primary** support-video links embedded within relevant missions
+- **Core landing page** with the original 12 missions grouped as:
+  - Support
+  - Consolidate
+  - Extend
+- **Extended landing page** with **24 additional missions** grouped by **8 sub-topics**, each with **3 levels**
+- A reusable **mission page** with:
+  - Learn
+  - Practice
+  - Quiz
+  - downloadable Word-compatible quiz evidence
+- **Thinking prompts** for incorrect answers instead of revealing the answer
+- **Encouraging feedback** and more student-friendly wording
+- **Gamification** features including:
+  - badges / trophies
+  - progress tracking
+  - mission status labels
+  - Daymap upload check-off
+- **Local storage save** so the site remembers progress, answers, student name and class on the same device/browser
+- Selected **Corbettmaths Primary** support-video links embedded in relevant core missions
 
-## Mission groups
-
-### Support
-1. Converting Between Fractions, Decimals and Percentages - Level 1
-2. Equivalent Fractions - Level 1
-3. Ordering and Rounding Decimals - Level 1
-4. Calculating Percentages - Level 1
-
-### Consolidate
-5. Converting Between Fractions, Decimals and Percentages - Level 2
-6. Adding Fractions
-7. Mixed Numbers and Improper Fractions
-8. Adding and Subtracting Decimals
-
-### Extend
-9. Converting Between Fractions, Decimals and Percentages - Level 3
-10. Multiplying and Dividing Fractions
-11. Multiplying and Dividing Decimals
-12. Percentage of a Quantity
-
-## Repository structure
+## File structure
 
 ```text
-fdp-mission-hub/
+fdp-mission-hub-gamified/
 ├── index.html
+├── extended.html
 ├── mission.html
 ├── css/
 │   └── style.css
@@ -50,44 +39,45 @@ fdp-mission-hub/
 └── README.md
 ```
 
-## How to upload to GitHub
+## GitHub Pages setup
 
 1. Create a new GitHub repository.
-2. Upload all files and folders from this project.
-3. Make sure `index.html` is in the root of the repository.
-4. Commit the files.
-
-## How to enable GitHub Pages
-
-1. Open the repository on GitHub.
-2. Go to **Settings**.
-3. Open **Pages**.
-4. Under **Build and deployment**, choose:
+2. Upload the files and folders exactly as shown above.
+3. Make sure `index.html` is in the **root** of the repository.
+4. On GitHub, go to **Settings** → **Pages**.
+5. Under **Build and deployment**, choose:
    - **Source:** Deploy from a branch
    - **Branch:** `main`
    - **Folder:** `/ (root)`
-5. Save.
-6. GitHub will publish the site and provide a link.
+6. Save.
 
-## Editing missions
+## Important note about saved progress
 
-All mission content lives in:
+The site uses **browser local storage**.
+That means it will remember progress on the **same device and browser**, unless the browser data is cleared.
 
-```text
-js/missions.js
-```
+## Core mission count
 
-You can edit:
-- titles
-- examples
-- practice questions
-- hints
-- reteaching text
-- quiz questions
-- accepted answers
+- 12 core missions
+
+## Extended mission count
+
+- 24 extended missions
+- 8 topics × 3 levels each
+
+## Extended topics
+
+1. Advanced FDP Conversions
+2. Comparing and Ordering FDP
+3. Fraction Operations in Context
+4. Decimal Operations and Reasoning
+5. Percentages in Real Life
+6. Percentage Change and Reverse Thinking
+7. Ratio Basics
+8. Sharing and Scaling with Ratio
 
 ## Notes
 
-- Students should enter their name and class before completing the quiz.
-- Quiz results download as a `.doc` file that can usually be opened in Microsoft Word.
-- This project is intentionally simple so it can be maintained easily in a school setting.
+- Quiz evidence downloads as a `.doc` file that can usually be opened in Microsoft Word.
+- Incorrect responses use **thinking prompts** rather than giving away solutions.
+- Students can mark a mission as **Uploaded to Daymap** once their evidence has been submitted.

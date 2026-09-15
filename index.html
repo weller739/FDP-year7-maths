@@ -3,114 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FDP Mission Hub | Year 7 Maths</title>
-  <meta name="description" content="A Year 7 maths mission hub for fractions, decimals and percentages." />
+  <title>FDP Mission Hub | Core Missions</title>
+  <meta name="description" content="Core FDP missions for Year 7 students." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <header class="hero">
-    <div class="container hero-inner">
+<body data-page="core-home">
+  <header class="hero hero-core">
+    <div class="container hero-grid">
       <div>
-        <p class="eyebrow">Year 7 Mathematics</p>
+        <p class="eyebrow">Year 7 Mathematics Quest</p>
         <h1>Fractions, Decimals and Percentages Mission Hub</h1>
         <p class="hero-text">
-          Learn by example, practise with feedback, and complete a short quiz to download evidence for your LMS.
-          Missions are grouped into <strong>Support</strong>, <strong>Consolidate</strong> and <strong>Extend</strong> so students can work at the right level.
+          Learn with examples, practise with thinking prompts, complete quizzes, and collect badges as you grow your maths power.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#mission-groups">Browse Missions</a>
-          <a class="button button-secondary" href="#how-it-works">How It Works</a>
+          <a class="button button-primary" href="#core-missions">Start Missions</a>
+          <a class="button button-secondary" href="#trophy-cabinet">View Badges</a>
         </div>
       </div>
-      <aside class="hero-panel">
-        <h2>Best starting point</h2>
-        <p>
-          Start with the <strong>Support</strong> group if students need confidence, then move into
-          <strong>Consolidate</strong> and <strong>Extend</strong>.
-        </p>
-        <div class="highlight-box">
-          <span class="highlight-label">Class focus</span>
-          <p><strong>Converting between fractions, decimals and percentages</strong> appears in all three groups because it has been a major class focus.</p>
-        </div>
+      <aside class="hero-card sparkles-card">
+        <h2>🎮 Your mission</h2>
+        <p>Complete the 12 core missions, upload your evidence to Daymap, and unlock the extended challenge zone.</p>
+        <div id="core-progress-summary" class="summary-mini"></div>
       </aside>
     </div>
   </header>
 
   <main>
-    <section id="how-it-works" class="section">
+    <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow dark">How the missions work</p>
-          <h2>One mission, three stages</h2>
+          <p class="eyebrow dark">How it works</p>
+          <h2>Three steps to success</h2>
         </div>
-        <div class="info-grid three-col">
-          <article class="info-card">
-            <div class="info-icon">1</div>
-            <h3>Learn</h3>
-            <p>Students are taught the skill with step-by-step notes and worked examples.</p>
-          </article>
-          <article class="info-card">
-            <div class="info-icon">2</div>
-            <h3>Practice</h3>
-            <p>Students answer guided questions and receive correct/incorrect feedback plus hints and reteaching.</p>
-          </article>
-          <article class="info-card">
-            <div class="info-icon">3</div>
-            <h3>Quiz</h3>
-            <p>Students complete a short quiz, view their score, and download a Word-compatible evidence file.</p>
-          </article>
+        <div class="feature-grid three-col">
+          <article class="feature-card"><div class="feature-icon">📘</div><h3>Learn</h3><p>Read clear steps, worked examples and strategy tips.</p></article>
+          <article class="feature-card"><div class="feature-icon">🧠</div><h3>Practice</h3><p>Get encouragement, hints and thinking prompts without the answer being given away.</p></article>
+          <article class="feature-card"><div class="feature-icon">🏅</div><h3>Quiz</h3><p>Save your score, download evidence, mark your upload to Daymap and earn badges.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="mission-groups" class="section section-soft">
+    <section id="dashboard" class="section section-soft">
+      <div class="container">
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>🗂️ Progress Tracker</h3>
+            <div id="dashboard-stats"></div>
+          </div>
+          <div class="dashboard-card">
+            <h3>💾 Device Save</h3>
+            <p>Your student name, class, answers and mission progress are saved on this device and browser.</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>🚩 Daymap Upload Check</h3>
+            <p>After uploading your evidence file, mark the mission as uploaded to help track your completion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="core-missions" class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow dark">Choose a mission</p>
-          <h2>Mission pathways</h2>
-          <p class="section-text">Each pathway contains four missions across fractions, decimals and percentages.</p>
+          <p class="eyebrow dark">Core missions</p>
+          <h2>Support, Consolidate and Extend</h2>
+          <p class="section-text">These 12 missions build your essential FDP skills step by step.</p>
         </div>
 
         <div class="group-shell support-shell">
-          <div class="group-heading">
-            <div>
-              <span class="group-tag support-tag">Support</span>
-              <h3>Build confidence with the core ideas</h3>
-            </div>
-            <p>Ideal for students who need strong examples, simpler numbers and more guided practice.</p>
-          </div>
+          <div class="group-heading"><div><span class="group-tag support-tag">Support</span><h3>Build confidence</h3></div><p>Start here if you want clear examples and strong foundations.</p></div>
           <div id="support-grid" class="mission-grid"></div>
         </div>
 
         <div class="group-shell consolidate-shell">
-          <div class="group-heading">
-            <div>
-              <span class="group-tag consolidate-tag">Consolidate</span>
-              <h3>Strengthen key Year 7 skills</h3>
-            </div>
-            <p>Good for students ready to connect skills and handle mixed question types.</p>
-          </div>
+          <div class="group-heading"><div><span class="group-tag consolidate-tag">Consolidate</span><h3>Strengthen key skills</h3></div><p>Bring different ideas together and practise accurate methods.</p></div>
           <div id="consolidate-grid" class="mission-grid"></div>
         </div>
 
         <div class="group-shell extend-shell">
-          <div class="group-heading">
-            <div>
-              <span class="group-tag extend-tag">Extend</span>
-              <h3>Apply and reason with more challenge</h3>
-            </div>
-            <p>Suitable for students who are ready to stretch their understanding with more complex examples.</p>
-          </div>
+          <div class="group-heading"><div><span class="group-tag extend-tag">Extend</span><h3>Stretch your thinking</h3></div><p>Use more complex examples and challenge your reasoning.</p></div>
           <div id="extend-grid" class="mission-grid"></div>
         </div>
+      </div>
+    </section>
+
+    <section id="challenge-zone" class="section section-soft">
+      <div class="container">
+        <div class="challenge-panel">
+          <div>
+            <p class="eyebrow dark">Ready for more?</p>
+            <h2>Have you completed all 12 missions?</h2>
+            <p>
+              Have you uploaded all 12 documents to Daymap, and are you ready to challenge your learning?
+              Open the <strong>Extended Missions Page</strong> for advanced fractions, decimals, percentages and ratio quests.
+            </p>
+          </div>
+          <a class="button button-primary big-button" href="extended.html">Open Extended Missions Page 🚀</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="trophy-cabinet" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark">Trophy Cabinet</p>
+          <h2>Badges you can unlock</h2>
+        </div>
+        <div id="badge-cabinet-core" class="badge-grid"></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>Created as a GitHub Pages-ready Year 7 mathematics resource.</p>
-      <p><a href="README.md">Repository notes</a></p>
+      <p>Created as a GitHub Pages-ready Year 7 maths resource.</p>
+      <p><a href="extended.html">Extended Missions</a> · <a href="README.md">Repository notes</a></p>
     </div>
   </footer>
 
