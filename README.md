@@ -13,6 +13,7 @@ A GitHub Pages-ready website for Year 7 students learning **fractions, decimals 
   - downloadable **Word-compatible evidence** as a `.doc` file
 - Built with plain **HTML, CSS and JavaScript**
 - Suitable for **GitHub Pages** hosting
+- Curated **Corbettmaths Primary** support-video links embedded within relevant missions
 
 ## Mission groups
 
